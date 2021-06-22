@@ -15,7 +15,7 @@ app.use(express.static(__dirname + "/../node_modules"));
 var users = [];
 
 socketio.on('connection', function(socket){
-    console.log("A user connected.");
+    console.log("用戶連結建立");
 
     socket.on('join', function(userName){
         console.log('user change name to : ' + userName);
@@ -28,7 +28,7 @@ socketio.on('connection', function(socket){
     });
 
     socket.on('message', function(message){
-        console.log(socket.userName + ' says: ' + message);
+        console.log(socket.userName + ' 說: ' + message);
 
         var data = {
             userName: socket.userName,
@@ -54,5 +54,5 @@ socketio.on('connection', function(socket){
 });
 
 http.listen(port, function(){
-    console.log("Running on PORT: " + port);
+    console.log("已在: " + port + "建立聊天室，輸入你的IP:"+ port+"連結");
 });
