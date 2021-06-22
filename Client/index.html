@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
 <head>
     <meta charset="UTF-8">
-    <title>Socket.io chat room</title>
+    <title>線上聊天聊起來</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
 </head>
@@ -15,9 +15,9 @@
                 <form action="" name="loginForm" v-on:submit.prevent="">
                     <div class="row">
                         <div class="input-group">
-                            <input class="form-control" type="text" autocomplete="off" v-model="userName" placeholder="Please give yourself a nickname" />
+                            <input class="form-control" type="text" autocomplete="off" v-model="userName" placeholder="輸入一個好聽的暱稱吧" />
                             <div class="input-group-btn">
-                                <button class="btn btn-primary" type="button" @click="login(userName)">Login</button>
+                                <button class="btn btn-primary" type="button" @click="login(userName)">開始聊天吧</button>
                             </div>
                         </div>
                     </div>
@@ -27,11 +27,11 @@
 
         <div class="row well" style="min-height: 500px;" v-show="userLoggedIn">
 
-            <!--online user list-->
+            <!--側邊成員列表-->
             <div class="col-md-3">
                 <div class="panel panel-primary">
                     <div class="panel-heading" id="userListHeading">
-                        <span class="glyphicon glyphicon-user"></span> Online Users
+                        <span class="glyphicon glyphicon-user"></span> 線上使用者
                         <div class="btn-group pull-right">
                             <a type="button" class="btn btn-default btn-xs" data-toggle="collapse"  href="#userListBody">
                                 <span class="glyphicon glyphicon-chevron-down"></span>
@@ -44,25 +44,39 @@
                         </ul>
                     </div>
                 </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading" id="userListHeading">
+                        <span class="glyphicon glyphicon-user"></span> 聊天室規則
+                        <div class="btn-group pull-right">
+                            <a type="button" class="btn btn-default btn-xs" data-toggle="collapse"  href="#userListBody">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-body collapse in" id="userListBody" style="height:355px; overflow-y: auto;">
+                        <p>請尊重他人，網路是開放環境，罵人還是要負法律責任的唷！</p>
+                    </div>
+                </div>
             </div>
+            
 
-            <!--chat history-->
+            
             <div class="col-md-9">
 
                 <div class="panel panel-primary">
-                    <div class="panel-heading"><span class="glyphicon glyphicon-comment"></span> Messages</div>
+                    <div class="panel-heading"><span class="glyphicon glyphicon-comment"></span> 即時聊天</div>
                     <div class="panel-body" style="height:300px; overflow-y: auto;">
                         <ul id="messages" class="list-group">
-                            <!--chat message history-->
+     
                             <li v-for="data in messagesHist" class="list-group-item"><span style="font-weight: bold;">{{data.userName}}</span> : {{data.message}}</li>
                         </ul>
                     </div>
                 </div>
                 <form action="" name="messageForm" v-on:submit.prevent="sendMessage(message)">
                     <div class="input-group">
-                        <input class="form-control" type="text" autocomplete="off" v-model="message" placeholder="Type your message here" />
+                        <input class="form-control" type="text" autocomplete="off" v-model="message" placeholder="輸入訊息吧" />
                         <div class="input-group-btn">
-                            <button class="btn btn-primary" type="button" @click="sendMessage(message)">Send</button>
+                            <button class="btn btn-primary" type="button" @click="sendMessage(message)">Enter傳送</button>
                         </div>
                     </div>
                 </form>
