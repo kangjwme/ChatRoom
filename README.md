@@ -7,7 +7,7 @@
 請先安裝nodejs
 
 ```
-git clone https://github.com/OneSlashNinja/ChatRoom.git
+git clone https://github.com/kangjwme/ChatRoom.git
 cd ChatRoom
 npm install
 cd Server
