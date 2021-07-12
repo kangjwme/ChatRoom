@@ -4,7 +4,7 @@
 
 # 部署方式
 
-請先安裝nodejs
+請先安裝nodejs(https://kangjw.me/?p=632)
 
 ```
 git clone https://github.com/kangjwme/ChatRoom.git
